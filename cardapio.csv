@@ -14,3 +14,20 @@ Risoto,"{'Arroz': 1, 'Tomate': 1, 'Queijo': 1}"
 Purê,"{'Batata': 1, 'Creme de Leite': 1, 'Queijo': 1}"
 Fetuccine,"{'Macarrão': 1, 'Creme de Leite': 1, 'Queijo': 1}"
 Nhoque,"{'Batata': 1, 'Trigo': 1, 'Queijo': 1}"
+Bife,"{'Carne': 1, 'Cebola': 1, 'Tomate': 1}"
+Omelete,"{'Ovo': 2, 'Queijo': 1}"
+Filet ao Molho Madeira,"{'Carne': 1, 'Creme de Leite': 1, 'Cebola': 1, 'Tomate': 1}"
+Filet au Poivre,"{'Carne': 1, 'Creme de Leite': 1, 'Cebola': 1, 'Tomate': 1}"
+Peixe,"{'Peixe': 1, 'Cebola': 1, 'Tomate': 1}"
+Frango grelhado,"{'Frango': 1, 'Cebola': 1, 'Tomate': 1}"
+Frango ao Molho Branco,"{'Frango': 1, 'Creme de Leite': 1, 'Cebola': 1, 'Tomate': 1}"
+Suco de Laranja,{'Laranja': 2}
+Suco de Limão,{'Limão': 2}
+Suco de Abacaxi,{'Abacaxi': 2}
+Suco de Morango,{'Morango': 2}
+Suco de Uva,{'Uva': 2}
+Agua,{'Agua': 2}
+Coca-Cola,{'Coca-Cola': 2}
+Guaraná,{'Guaraná': 2}
+Fanta,{'Fanta': 2}
+Sprite,{'Sprite': 2}
