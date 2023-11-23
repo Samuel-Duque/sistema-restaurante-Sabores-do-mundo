@@ -3,6 +3,8 @@ import ast
 estoque_df = pd.read_csv('estoque.csv')
 estoque = estoque_df.set_index('Item')['Quantidade'].to_dict()
 
+
+
 cardapio_df = pd.read_csv('cardapio.csv')
 
 # Converte a coluna'Ingredientes' de string p/ dicionario
