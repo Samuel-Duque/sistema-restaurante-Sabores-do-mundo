@@ -1,4 +1,4 @@
-import classes
+from classes import *
 
 def Cadastro_Gerente(lista_cadastrados,cargos): 
     nome_cadastro = input("Digite o seu nome para cadastro: ")
@@ -8,11 +8,11 @@ def Cadastro_Gerente(lista_cadastrados,cargos):
     if senha_cadastro != senha_cadastro_verificacao:
         print("Senhas diferentes!")
         Cadastro_Gerente(lista_cadastrados,cargos)
-    cadastro_novo = Cliente(nome_cadastro, senha_cadastro,cargos[0])
+    cadastro_novo = pessoa(nome_cadastro, senha_cadastro,cargos[0])
     lista_cadastrados.append(cadastro_novo)
 
 def Cadastro_Funcionarios(lista_cadastrados, cargos):
-    
+
     nome_cadastro = input("Digite o seu nome para cadastro: ")
     senha_cadastro = input("Digite sua senha para cadastro: ")
     senha_cadastro_verificacao = input("Digite sua senha novamente para cadastro: ")
@@ -24,7 +24,7 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos):
         print(f"{index} - {cargo}")
 
     escolher_cargo= int(input("Digite o index do cargo desejado: "))
-    cadastro_novo = Cliente(nome_cadastro, senha_cadastro,cargos[escolher_cargo])
+    cadastro_novo = pessoa(nome_cadastro, senha_cadastro,cargos[escolher_cargo])
     if cargos[escolher_cargo] == 'Chef de cozinha':
         cadastro_novo = Chef_de_Cozinha(nome_cadastro, senha_cadastro)
     lista_cadastrados.append(cadastro_novo)
