@@ -1,4 +1,4 @@
-import classes
+from  classes import *
 
 def Cadastro_Gerente(lista_cadastrados,cargos): 
     nome_cadastro = input("Digite o seu nome para cadastro: ")
@@ -12,7 +12,6 @@ def Cadastro_Gerente(lista_cadastrados,cargos):
     lista_cadastrados.append(cadastro_novo)
 
 def Cadastro_Funcionarios(lista_cadastrados, cargos):
-    
     nome_cadastro = input("Digite o seu nome para cadastro: ")
     senha_cadastro = input("Digite sua senha para cadastro: ")
     senha_cadastro_verificacao = input("Digite sua senha novamente para cadastro: ")

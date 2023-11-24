@@ -1,5 +1,5 @@
-Comida,Ingredientes
-Lasanha,"{'Trigo': 2, 'Tomate': 1}"
+Comida,Ingredientes,Instruções de Preparo
+Lasanha,"{'Trigo': 2, 'Tomate': 1}", 
 Bolo,"{'Trigo': 3, 'Ovo': 2}"
 Pizza,"{'Trigo': 2, 'Tomate': 1, 'Queijo': 1}"
 Pudim,"{'Leite': 1, 'Ovo': 2}"

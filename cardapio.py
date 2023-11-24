@@ -1,6 +1,7 @@
 import pandas as pd
 import ast
-estoque_df = pd.read_csv('estoque.csv')
+
+estoque_df = pd.read_csv(f'estoque.csv')
 estoque = estoque_df.set_index('Item')['Quantidade'].to_dict()
 
 
@@ -22,6 +23,7 @@ def pedir_comida():
             if item in cardapio[comida] and estoque[item] >= cardapio[comida][item]:
                 estoque[item] -= cardapio[comida][item]
         i=i+1
+
 def restocar():
     item = input("Qual item você quer adicionar?: ")
     quantidade = int(input("Quantos você quer adicionar?: "))
@@ -30,7 +32,6 @@ def restocar():
     else:
         estoque[item] = quantidade
     print(f'{quantidade} {item} adicionados ao estoque.')
-
 
 estoque_df = pd.DataFrame(list(estoque.items()), columns=['Item', 'Quantidade'])
 estoque_df.to_csv('estoque.csv', index=False)
