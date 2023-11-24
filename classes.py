@@ -34,7 +34,7 @@ class Chef_de_Cozinha(pessoa):
             elif item in cardapio[comida] and estoque[item] >= cardapio[comida][item]:
                 print(f'Você não tem ingredientes suficientes para preparar {comida}.')
                 break
-
+        atualizar_estoque()
         print(f'{comida} preparada com sucesso!')
         
 class Gerente_filial(pessoa):
@@ -46,4 +46,4 @@ class Gerente_filial(pessoa):
     
 p1 = pessoa('João', '1234')
 p1 = Chef_de_Cozinha(p1.nome, p1.password)
-print(p1.preparar_comida())
+p1.preparar_comida()

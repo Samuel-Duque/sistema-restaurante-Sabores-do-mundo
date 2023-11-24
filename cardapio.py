@@ -3,7 +3,6 @@ import ast
 
 # Cria um dicionario com o nome do item como chave e a quantidade como valor
 
-
 estoque_df = pd.read_csv('estoque.csv')
 estoque = estoque_df.set_index('Item')['Quantidade'].to_dict()
 
@@ -46,6 +45,6 @@ def restocar():
         estoque[item] = quantidade
     print(f'{quantidade} {item} adicionados ao estoque.')
 
-
-estoque_df = pd.DataFrame(list(estoque.items()), columns=['Item', 'Quantidade'])
-estoque_df.to_csv('estoque.csv', index=False)
+def atualizar_estoque():
+    estoque_df = pd.DataFrame(list(estoque.items()), columns=['Item', 'Quantidade'])
+    estoque_df.to_csv('estoque.csv', index=False)
