@@ -48,3 +48,7 @@ def restocar():
 def atualizar_estoque():
     estoque_df = pd.DataFrame(list(estoque.items()), columns=['Item', 'Quantidade'])
     estoque_df.to_csv('estoque.csv', index=False)
+    
+def atualizar_cardapio():
+    cardapio_df = pd.DataFrame(list(cardapio.items()), columns=['Comida', 'Ingredientes'])
+    cardapio_df.to_csv('cardapio.csv', index=False)

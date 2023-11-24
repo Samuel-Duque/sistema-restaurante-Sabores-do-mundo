@@ -1,5 +1,5 @@
+# In[ ]:
 from cardapio import *
-
 class pessoa:
     def __init__(self, nome, password, cargo='Cliente'):
         self.nome = nome
@@ -36,7 +36,22 @@ class Chef_de_Cozinha(pessoa):
                 break
         atualizar_estoque()
         print(f'{comida} preparada com sucesso!')
-        
+
+    def cadastrar_prato(self):
+        comida=input("Qual comida você quer cadastrar?: ")
+        quantidade = int(input("Digite a quantidade de ingredientes: "))
+        ingredientes = {}
+        for i in range(quantidade):
+            item = input("Qual ingrediente você quer adicionar?: ")
+            if item == ingredientes[item]:
+                print(f'Você já adicionou {item}.')
+                break
+            quantidade = int(input(f"Quantos {item} são necessários?: "))
+            ingredientes[item] = quantidade
+        cardapio[comida] = ingredientes
+        print(f'{comida} cadastrada com sucesso!')
+        atualizar_cardapio()
+
 class Gerente_filial(pessoa):
     def __init__(self, nome, password):
         super().__init__(nome, password, cargo='Gerente_filial')
@@ -46,4 +61,7 @@ class Gerente_filial(pessoa):
     
 p1 = pessoa('João', '1234')
 p1 = Chef_de_Cozinha(p1.nome, p1.password)
-p1.preparar_comida()
+
+
+
+# %%
