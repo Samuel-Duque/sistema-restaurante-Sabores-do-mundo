@@ -1,5 +1,6 @@
 from classes import *
-
+import time
+import csv 
 def Cadastro_Gerente(lista_cadastrados,cargos): 
     nome_cadastro = input("Digite o seu nome para cadastro: ")
     senha_cadastro = input("Digite sua senha para cadastro: ")
@@ -29,6 +30,17 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos):
         cadastro_novo = Chef_de_Cozinha(nome_cadastro, senha_cadastro)
     lista_cadastrados.append(cadastro_novo)
 
+
+
+def criar_filial(local):
+    nome_arquivo = f"estoque-{local}.csv"
+    filial = Filial(local,nome_arquivo)
+    with open(nome_arquivo,'w',newline='', encoding='utf-8') as arquivo:
+        colunas = ['item','quantidade']
+        escrever = csv.DictWriter(arquivo, fieldnames=colunas)
+        escrever.writeheader()
+    return filial
+    
     
 def Login(lista_cadastrados, cargos):
     entrada_nome = input("Digite o seu nome cadastrado: ")
@@ -58,8 +70,9 @@ def main_gerente(lista_cadastrados,cargos):
         print("-*"*30)
         print("1. Cadastrar Funcionario")
         print("2. Registro")
-        print("2. Relatorio")
-        print("3. SAIR")
+        print("3. Relatorio")
+        print("4. Monitoramento em tempo real")
+        print("5. SAIR")
         entrada = input("Digite a opcao desejada: ")
         match entrada:
             case '1':
@@ -67,6 +80,10 @@ def main_gerente(lista_cadastrados,cargos):
             case '2':
                 Registro(lista_cadastrados)
             case '3':
+                
+            case '4':
+                
+            case '5':
                 break
 
             
