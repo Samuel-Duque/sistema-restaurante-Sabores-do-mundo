@@ -1,5 +1,6 @@
 # In[ ]:
 from cardapio import *
+import csv
 class pessoa:
     def __init__(self, nome, password, cargo='Cliente'):
         self.nome = nome
@@ -18,10 +19,57 @@ class pessoa:
         elif self.cargo == 'Cliente':
             return 'Sem permissões especiais'
         
+     
+class Filial():
+    def __init__(self,nome,arquivo_csv):
+        self.nome = nome
+        #dicionário para armazenar a quant disponível de cada item no estoque
+        self.estoque = {}
+        self.arquivo_csv = arquivo_csv
+        
+    #arquivo no argumento para eu usar o arquivo da filial que eu quero
+    def carregar_estoque(self):
+        with open(self.arquivo_csv, newline='', encoding='utf-8') as arquivo:
+            ler = csv.DictReader(arquivo)
+            #itera cada linha do arquivo csv
+            for linha in ler:# cada iteração obtem uma linha do arquivo
+                item = linha['item']
+                quantidade = int(linha['quantidade'])
+                self.estoque[item] = quantidade   
+                
+    def salvar_estoque(self):
+        with open(self.arquivo_csv,'w', newline='', encoding='utf-8') as arquivo:
+            coluna = ['item','quantidade']
+            escrever = csv.DictWriter(arquivo,fieldnames=coluna)
+            escrever.writeheader()
+            
+            for item, quantidade in self.estoque.items():
+                escrever.writerow({'item': item, 'quantidade':quantidade})
+    def adicionar_produto(self,produto,quantidade):
+        self.carregar_estoque()
+        if produto in self.estoque:
+            self.estoque[produto] += quantidade
+        else:
+            self.estoque[produto] = quantidade
+        self.salvar_estoque()
+            
+    def remover_produto(self,produto,quantidade):
+        self.carregar_estoque()
+        
+        if produto in self.estoque and self.estoque[produto] >= quantidade:
+            self.estoque[produto] -= quantidade
+        else:
+            print(f"Quantidade insulficiente de {produto} em {self.nome}.")
+            
+    def mostrar_produto(self):
+        print(f"\nEstoque em {self.nome}")
+        for produto, quantidade in self.estoque.items():
+            print(f"{produto}: {quantidade}")
         
 class Chef_de_Cozinha(pessoa):
-    def __init__(self, nome, password):
+    def __init__(self, nome, password,filial):
         super().__init__(nome, password, cargo='Chef de Cozinha')
+        self.filial = filial
 
     def permissoes(self):
         return 'Permissão para acesso a relatórios de cozinha e pedidos'
@@ -53,8 +101,9 @@ class Chef_de_Cozinha(pessoa):
         atualizar_cardapio()
 
 class Gerente_filial(pessoa):
-    def __init__(self, nome, password):
+    def __init__(self, nome, password,filial):
         super().__init__(nome, password, cargo='Gerente_filial')
+        self.filial = filial 
 
     def permissoes(self):
         return 'Permissão para acesso a todos os relatórios e pedidos'

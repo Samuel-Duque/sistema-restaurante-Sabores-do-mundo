@@ -29,13 +29,14 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos):
         cadastro_novo = Chef_de_Cozinha(nome_cadastro, senha_cadastro)
     lista_cadastrados.append(cadastro_novo)
 
+    
 def Login(lista_cadastrados, cargos):
     entrada_nome = input("Digite o seu nome cadastrado: ")
     entrada_senha = input("Digite sua senha: ")
     for pessoa in lista_cadastrados:
         if pessoa.nome == entrada_nome and pessoa.password == entrada_senha:
             print("\nLOGADO COM SUCESSO")
-            print(f"Nome: {pessoa.nome},Cargo:{pessoa.cargo}")
+            print(f"Nome: {pessoa.nome}, Cargo:{pessoa.cargo}")
             if pessoa.cargo == 'Gerente':
                 main_gerente(lista_cadastrados, cargos)
         elif pessoa.nome == entrada_nome and pessoa.password != entrada_senha:
