@@ -1,6 +1,8 @@
 from classes import *
+from classes import preparar_comida
 import time
 import csv 
+import cardapio
 def Cadastro_Gerente(lista_cadastrados,cargos): 
     nome_cadastro = input("Digite o seu nome para cadastro: ")
     senha_cadastro = input("Digite sua senha para cadastro: ")
@@ -42,6 +44,7 @@ def criar_filial(local):
     return filial
     
     
+    
 def Login(lista_cadastrados, cargos):
     entrada_nome = input("Digite o seu nome cadastrado: ")
     entrada_senha = input("Digite sua senha: ")
@@ -61,12 +64,32 @@ def Registro(lista_cadastrados):
         print(f"Nome: {pessoa.nome},Cargo:{pessoa.cargo}")
         print(f"Permissão: {pessoa.permissoes()}")
 
-
+def imprimir_cardapio():
+    for comida in cardapio.keys():
+        print(comida)
+def main_chef_de_cozinha(lista_cadastrados,Chef_de_Cozinha,cargos):
+    while True:
+        print('\n')
+        print("-*"*30)
+        print(' '*23,"TELA DE LOGIN CHEF DE COZINHA")
+        print("-*"*30)
+        print("1. Vizualizar Cardápio ")
+        print("2. Preparar Comida")
+        entrada = input("Digite a opcao desejada: ")
+        match entrada:
+            case 1:
+                imprimir_cardapio()
+            case 2:
+                imprimir_cardapio()
+                preparar_comida()
+            
+                    
+    
 def main_gerente(lista_cadastrados,cargos):
     while True:
         print('\n')
         print("-*"*30)
-        print(' '*23,"TELA DE LOGIN")
+        print(' '*23,"TELA DE LOGIN GERENTE")
         print("-*"*30)
         print("1. Cadastrar Funcionario")
         print("2. Registro")
@@ -79,10 +102,6 @@ def main_gerente(lista_cadastrados,cargos):
                 Cadastro_Funcionarios(lista_cadastrados,cargos)
             case '2':
                 Registro(lista_cadastrados)
-            case '3':
-                
-            case '4':
-                
             case '5':
                 break
 
