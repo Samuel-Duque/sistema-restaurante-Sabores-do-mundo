@@ -1,27 +1,27 @@
-Item,Quantidade,Quantidade Inicial
-Trigo,960,960
-Tomate,987,987
-Ovo,966,966
-Queijo,998,998
-Leite,1000,1000
-Carne,1000,1000
-Creme de Leite,1000,1000
-Feijão,1000,1000
-Arroz,98,998
-Farofa,1000,1000
-Laranja,5000,5000
-Cebola,1000,1000
-Batata,1000,1000
-Alface,1000,1000
-Pepino,1000,1000
-Cenoura,1000,1000
-Beterraba,1000,1000
-Coca-Cola,499,5000
-Guarana,5000,5000
-Fanta,4998,4998
-Sprite,5000,5000
-Agua,5000,5000
-Morango,5000,5000
-Abacaxi,5000,5000
-Uva,5000,5000
-Limão,5000,5000
+Item,Quantidade,Quantidade Inicial,Fornecedor
+Trigo,960,960,
+Tomate,987,987,
+Ovo,966,966,
+Queijo,10,998,
+Leite,1099,1099,Piracanjuba
+Carne,1000,1000,
+Creme de Leite,5005,5005,Piracanjuba
+Feijão,1000,1000,
+Arroz,998,998,
+Farofa,100,1000,
+Laranja,605,605,Friboi
+Cebola,1000,1000,
+Batata,1000,1000,
+Alface,1000,1000,
+Pepino,2000,2000,
+Cenoura,15,1010,
+Beterraba,1000,1000,
+Coca-Cola,5000,5000,
+Guarana,5000,5000,Indaia
+Fanta,4998,4998,
+Sprite,5000,5000,
+Agua,10000,10000,Indaia
+Morango,5000,5000,
+Abacaxi,5000,5000,
+Uva,5000,5000,
+Limão,0,5000,
