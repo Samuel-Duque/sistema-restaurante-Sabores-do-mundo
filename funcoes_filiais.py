@@ -58,6 +58,7 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos, filial):
         cadastro_novo = Chef_de_Cozinha(cadastro_novo.nome, cadastro_novo.password, cadastro_novo.historico, cadastro_novo.idade,)
     with open(filial,'r', newline='') as arquivo:
         if arquivo.read(1) == '':
+            
             df = pd.DataFrame({
                 "Nome": listas_nomes,
                 "Idade": lista_idade,
@@ -65,7 +66,9 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos, filial):
                 "Historico": lista_historico
             })
             df.to_csv(filial, sep=";", index=False, mode = 'a')
+            
         else:
+            
             df = pd.DataFrame({
                 "Nome": listas_nomes,
                 "Idade": lista_idade,
@@ -73,6 +76,7 @@ def Cadastro_Funcionarios(lista_cadastrados, cargos, filial):
                 "Historico": lista_historico
             })
             df.to_csv(filial, sep=";", index=False, mode = 'a', header=False)
+
     lista_cadastrados.append(cadastro_novo)
 
 def cria_filial_nome(local):
@@ -94,7 +98,7 @@ def Menu_gerente_filial(filial):
             Menu_gerente_filial(filial)
         case 2:
             
-            Menu_gerente_filial(filial)
+            gestao_equipe(filial)
         case 3:
             print('Saindo...')
         case _:
@@ -102,4 +106,31 @@ def Menu_gerente_filial(filial):
             Menu_gerente_filial(filial)    
         
 
-                
+def gestao_equipe(filial):
+    with open(filial, "r", newline = '')as arquivo2:
+        arquivo = pd.read_csv(arquivo2, sep=";")
+        for nome in arquivo["Nome"]:
+            print(f"Nome: {nome}")
+    escolha_nome = input("Digite o nome do funcionario: ")
+    escala_data = input("Digite a data da escala: ")
+    escala_horas = input("Digite a escala de horas: ")
+    avaliacao_desempenho = input("Digite o desempenho : ")
+
+    nome_funcionario = []
+    data_funcionario = []
+    horas_funcionario = []
+    desempenho_funcionario = []
+
+    nome_funcionario.append(escolha_nome)
+    data_funcionario.append(escala_data)
+    horas_funcionario.append(escala_horas)
+    desempenho_funcionario.append(avaliacao_desempenho)
+
+    dados = pd.DataFrame({
+        "Nome": nome_funcionario,
+        "Escala": data_funcionario,
+        "Horario": horas_funcionario,
+        "Avaliação de desempenho": desempenho_funcionario
+    })
+    dados.to_csv(f"gestao de {filial}", sep=";", index=False, mode = 'a')
+main_gerente(lista_cadastrados,cargos)

@@ -1,4 +1,4 @@
-from funcoes_filiais import main_gerente
+
 from classes import *
 import csv
 import pandas as pd
@@ -65,4 +65,3 @@ def gestao_equipe():
     for pessoas in lista_cadastrados:
         print(f"Nome: {pessoas.nome}")
 
-Login(lista_cadastrados,cargos)
