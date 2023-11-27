@@ -22,18 +22,10 @@ def send_email(subject, message, to, from_email, email_password):
         server.login(from_email, email_password)
         server.send_message(msg)
 
-filial = 'Mae'
+filial = 'BoaViagem'
 
 def reposicao(filial, from_email, email_password, to_email):
-    if filial == 'Mae':
-        # Ler o arquivo csv
-        df = pd.read_csv('estoque.csv')
-    elif filial == 'Boa Viagem':
-        # Ler o arquivo csv
-        df = pd.read_csv('estoque-BoaViagem.csv')
-    elif filial == 'Setubal':
-        # Ler o arquivo csv
-        df = pd.read_csv('estoque-Setubal.csv')
+    df = pd.read_csv(f'estoque-{filial}.csv')
 
     # Lista para armazenar as mensagens de alerta
     alertas = []
@@ -79,7 +71,7 @@ def reposicao(filial, from_email, email_password, to_email):
             escolha_produto = input('Digite o nome do produto que deseja restocar: ')
             if escolha_produto in [item[0] for item in produtos_reposicao]:
                 produto = [item for item in produtos_reposicao if item[0] == escolha_produto][0]
-                df = pd.read_csv('estoque.csv')
+                df = pd.read_csv(f'estoque-{filial}.csv')
 
                 # Atualizar o estoque
                 quantidade_reposicao = int(input(f"Digite a quantidade que você deseja repor ao produto '{produto[0]}': "))
