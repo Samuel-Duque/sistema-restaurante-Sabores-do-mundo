@@ -90,4 +90,4 @@ def reposicao(filial, from_email, email_password, to_email):
             print('\nFinalizando...')              
     else:
         print('\nNão há alertas de reposição do estoque.')    
-reposicao(filial, 'vinciuscarmo71@gmail.com', 'danc ykwr odan rfew', 'samuel.locatel@souunit.com.br')
+reposicao(filial, '(Algum Email)', '(Alguma Senha)', '(Algum Destinatario)')
