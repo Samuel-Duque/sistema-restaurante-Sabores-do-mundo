@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="image.png" alt="Alternate Text" />
+</p>
+
+
+
 # Projeto de Sistema de Gestão de Restaurante
 ## Descrição
 Este projeto é um sistema de gestão de restaurantes que oferece uma série de funcionalidades para facilitar a operação e gestão de restaurantes.
