@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center" height="200">
   <img src="image.jpg" alt="Alternate Text" />
 </p>
 
